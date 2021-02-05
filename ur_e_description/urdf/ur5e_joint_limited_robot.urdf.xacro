@@ -31,4 +31,14 @@
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
   </joint>
 
+  <!-- tool changer -->
+  <xacro:include filename="$(find robotiq_85_description)/urdf/tool_changer.xacro" />
+  <xacro:tool_changer prefix="" connected_to="tool0" />
+
+  <!-- gripper -->
+  <xacro:include filename="$(find robotiq_85_description)/urdf/robotiq_85_gripper.urdf.xacro" />
+  <xacro:robotiq_85_gripper prefix="" parent="tool_changer_tool0" >
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 ${-pi/2} 0.0" />
+  </xacro:robotiq_85_gripper>
+
 </robot>
