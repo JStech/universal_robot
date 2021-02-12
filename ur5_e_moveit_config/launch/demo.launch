@@ -49,5 +49,6 @@
 
   <!-- Gripper -->
   <include file="$(find robotiq_85_bringup)/launch/robotiq_85.launch" />
+  <node name="robotiq_85_action_server" pkg="robotiq_85_driver" type="robotiq_85_action_server" />
 
 </launch>
