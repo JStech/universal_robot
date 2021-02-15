@@ -14,10 +14,11 @@
     kinematics_file="${load_yaml('$(arg kinematics_config)')}"
     />
 
-  <link name="world" />
+  <!-- table -->
+  <xacro:include filename="$(find ur_e_description)/urdf/table.urdf.xacro" />
 
-  <joint name="world_joint" type="fixed">
-    <parent link="world" />
+  <joint name="table_joint" type="fixed">
+    <parent link="table_robot_mount_link" />
     <child link = "base_link" />
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
   </joint>

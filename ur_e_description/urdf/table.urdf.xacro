@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="ur5e_on_table" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <material name="workbench_grey">
+    <color rgba="0.3 0.3 0.3 1.0"/>
+  </material>
+
+  <link name="table">
+    <origin xyz="0.0 0.0 0.05" rpy="0.0 0.0 0.0"/>
+    <visual>
+      <geometry>
+        <box size="1.23 0.77 0.1"/>
+      </geometry>
+      <material name="workbench_grey"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="1.23 0.77 0.1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="mount_link_to_table_joint" type="fixed">
+    <parent link="table_robot_mount_link" />
+    <child link="table" />
+    <origin xyz="0.0 0.0 0.05" rpy="0.0 0.0 0.0"/>
+  </joint>
+  <link name="table_robot_mount_link"/>
+
+  <!-- Back wall -->
+  <joint name="mount_link_to_back_wall" type="fixed">
+    <parent link="table_robot_mount_link" />
+    <child link="back_wall" />
+    <origin xyz="0.0 -0.4 0.8" rpy="0 0 0" />
+  </joint>
+  <link name="back_wall">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="1.23 0.01 1.6"/>
+      </geometry>
+    </collision>
+  </link>
+</robot>
